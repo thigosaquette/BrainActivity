@@ -5,6 +5,7 @@ BrainActivity - Está na hora de colocar suas ideias em um lugar, organize seu d
 
 Projeto de aplicação em NodeJS, React Native e ReactJS incentivado pela FourSales. 
 
+LAYOUT (Figma) => https://www.figma.com/file/BGNo8yKC4AbDAa4H3MXEQW/Prot%C3%B3tipo---Brain?node-id=0%3A1
 
 MOBILE (Estático) => Visualização das listas e navegação pelas telas do app por um sistema de stack e tabs;
 
