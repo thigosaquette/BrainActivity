@@ -18,28 +18,38 @@ const FormRegister: React.FC<CreateActivityProps> = ({buttonWord}) => {
     const [password, setPassword] = useState('');
 
     const navigation = useNavigation();
-    const history = useHistory();
 
     async function handleIdentifyOperation() {
         //Define a ação pelo tipo de palavra inserida
+        const data = {
+            name,
+            password
+        }
+
         if (buttonWord === 'Criar conta') {
             //Cria um usuário
             try {
-                const response = await api.post('/users', {
-                    params: {
-                        name,
-                        password
-                    }
-                });
-                alert(`Sucesso, ao criar sua conta ${name}`);
+                await api.post('/users', data);
                 navigation.navigate('Landing');
+                alert(`Sucesso, ao criar sua conta ${data.name}`);
             } catch (error) {
-                alert('Erro no cadastro, tente novamente.');
+                alert('Erro ao criar a conta, tente novamente.');
             }
         }
 
         if (buttonWord === 'Entrar') {
+            localStorage.clear();
+            const history = useHistory();
             //Realiza Login
+            try {
+                const response = await api.post('sessions', {name});
+                
+                localStorage.setItem('userName', response.data.name);
+    
+                history.push('/Home');
+            } catch (error) {
+                alert('Falha no login, tente novamente.')
+            }
             navigation.navigate('Home');
         }
 

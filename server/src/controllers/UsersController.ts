@@ -2,6 +2,7 @@ import {Request, Response} from 'express';
 import db from '../database/connection';
 
 export default class UsersController {
+
     async index(request: Request, response: Response) {
         const users = await db('users').select('*');
     
@@ -9,9 +10,8 @@ export default class UsersController {
     }
 
     async create(request: Request, response: Response) {
+        
         try {
-            console.log('teste 1')
-
             const {name, password} = request.body;
     
             await db('users').insert({
