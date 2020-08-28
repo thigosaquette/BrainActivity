@@ -1,5 +1,5 @@
 import {Request, Response} from 'express';
-const db = require('../database/connection');
+import db from '../database/connection';
 
 export default class SessionController {
     

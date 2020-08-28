@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { View, TextInput, Text,  } from 'react-native';
 import { useNavigation} from '@react-navigation/native';
-import {useHistory} from 'react-router-dom';
 import { RectButton } from 'react-native-gesture-handler';
 
 import api from '../../services/api';
@@ -16,7 +15,7 @@ interface CreateActivityProps {
 const FormRegister: React.FC<CreateActivityProps> = ({buttonWord}) => {
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
-
+    
     const navigation = useNavigation();
 
     async function handleIdentifyOperation() {
@@ -38,19 +37,15 @@ const FormRegister: React.FC<CreateActivityProps> = ({buttonWord}) => {
         }
 
         if (buttonWord === 'Entrar') {
-            localStorage.clear();
-            const history = useHistory();
-            //Realiza Login
             try {
-                const response = await api.post('sessions', {name});
-                
-                localStorage.setItem('userName', response.data.name);
-    
-                history.push('/Home');
+                //Realiza Login
+                const response = await api.post('/loginSessions', {name});
+                console.log(response.data.name);
+                alert(`Seja bem vindo ${response.data.name}`);
+                navigation.navigate('Home');               
             } catch (error) {
-                alert('Falha no login, tente novamente.')
+                alert('Erro ao logar, tente novamente.');
             }
-            navigation.navigate('Home');
         }
 
     };
