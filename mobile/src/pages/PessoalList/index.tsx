@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import { Text, View, ScrollView, TextInput} from 'react-native';
-import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
+import { View, ScrollView } from 'react-native';
 
 import PageHeader from '../../components/PageHeader';
 import Activities from '../../components/Activities';
 
-import { Feather } from '@expo/vector-icons';
 import styles from './styles';
 
 function PessoalList() {

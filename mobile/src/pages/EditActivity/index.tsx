@@ -1,6 +1,5 @@
 import React from 'react';
-import { Text, View, ImageBackground} from 'react-native';
-import { useNavigation} from '@react-navigation/native';
+import { View } from 'react-native';
 import PageHeader from '../../components/PageHeader';
 import FormActivity from '../../components/FormActivity';
 
@@ -10,7 +9,7 @@ function EditActivity() {
 
     return (
         <View style={styles.container}>
-            <PageHeader title='Quem nunca precisou adaptar um atividade?' />
+            <PageHeader title='Quem nunca precisou adaptar uma atividade?' />
             <FormActivity buttonWord='Editar' />
         </View>
     );

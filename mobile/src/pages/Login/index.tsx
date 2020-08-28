@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, ImageBackground} from 'react-native';
+import { View } from 'react-native';
 import PageHeader from '../../components/PageHeader';
 import FormRegister from '../../components/FormRegister';
 

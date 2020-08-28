@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, ImageBackground} from 'react-native';
+import { Text, View } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import { useNavigation} from '@react-navigation/native';
 import PageHeader from '../../components/PageHeader';
