@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, Component } from 'react';
 import { View, TextInput, Text,  } from 'react-native';
 import { useNavigation} from '@react-navigation/native';
 import { RectButton } from 'react-native-gesture-handler';
@@ -10,6 +10,10 @@ interface FormActivityProps {
 }
 
 const FormActivity: React.FC<FormActivityProps> = ({buttonWord}) => {
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+    const [type, setType] = useState('');
+
     const navigation = useNavigation();
 
     function handleIdentifyOperation() {
@@ -29,6 +33,8 @@ const FormActivity: React.FC<FormActivityProps> = ({buttonWord}) => {
             <View style={styles.inputBlock}>
                 <Text style={styles.label}>Título</Text>
                 <TextInput
+                    value={title}
+                    onChangeText={text => setTitle(text)}                    
                     style={styles.input}
                     placeholder="De um título a atividade"
                     placeholderTextColor="#BC8A9F"
@@ -38,6 +44,8 @@ const FormActivity: React.FC<FormActivityProps> = ({buttonWord}) => {
             <View style={styles.inputBlock}>
                 <Text style={styles.label}>Descrição</Text>
                 <TextInput
+                value={description}
+                onChangeText={text => setDescription(text)}                
                 style={styles.inputArea}
                 placeholder="Descreva sua atividade"
                 multiline = {true}
@@ -50,9 +58,11 @@ const FormActivity: React.FC<FormActivityProps> = ({buttonWord}) => {
             <View style={styles.inputBlock}>
                 <Text style={styles.label}>Tipo</Text>
                 <TextInput
-                style={styles.select}
-                placeholder="Selecione uma atividade"
-                placeholderTextColor="#BC8A9F"
+                    value={type}
+                    onChangeText={text => setType(text)}                    
+                    style={styles.input}
+                    placeholder="Escolha um tipo"
+                    placeholderTextColor="#BC8A9F"   
                 />
             </View>
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, Text,  } from 'react-native';
+import { View, TextInput, Text, AsyncStorage } from 'react-native';
 import { useNavigation} from '@react-navigation/native';
 import { RectButton } from 'react-native-gesture-handler';
 
@@ -39,10 +39,10 @@ const FormRegister: React.FC<CreateActivityProps> = ({buttonWord}) => {
         if (buttonWord === 'Entrar') {
             try {
                 //Realiza Login
+                AsyncStorage.clear();
                 const response = await api.post('/loginSessions', {name});
-                console.log(response.data.name);
-                alert(`Seja bem vindo ${response.data.name}`);
-                navigation.navigate('Home');               
+                await AsyncStorage.setItem('username', name);             
+                navigation.navigate('Home'); 
             } catch (error) {
                 alert('Erro ao logar, tente novamente.');
             }
