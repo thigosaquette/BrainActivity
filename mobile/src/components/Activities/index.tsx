@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { useHistory } from 'react-router-dom';
 import { BorderlessButton } from 'react-native-gesture-handler'
 import {useNavigation} from '@react-navigation/native';
 
@@ -10,7 +9,6 @@ import styles from './styles';
 
 function Activities() {
     const navigation = useNavigation();
-    const history = useHistory();
     
     const userName = localStorage.getItem('userName');
 
